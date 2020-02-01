@@ -25,6 +25,14 @@ public class GameManager : MonoBehaviour
 		StartGame();
 	}
 
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+		}
+	}
+
 	void StartGame()
 	{
 		ResetBall();
