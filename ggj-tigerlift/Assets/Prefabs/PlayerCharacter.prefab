@@ -52,8 +52,9 @@ MonoBehaviour:
   m_TimeSinceLastKick: 0
   KickCooldown: 2
   KickImpulse: 1.2
+  KickMinVelocityMagnitude: 8
   AttachedRail: {fileID: 0}
-  CurrentLife: 0
+  CurrentLife: 3
   BallsInRange: []
 --- !u!135 &279691808531047095
 SphereCollider:

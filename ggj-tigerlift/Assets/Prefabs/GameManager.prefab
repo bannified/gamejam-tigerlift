@@ -43,3 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f711e1f8f1b4d74a91fe206db38269a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Ball: {fileID: 0}
+  Stage: {fileID: 0}

@@ -11,16 +11,10 @@ public class Foosball : MonoBehaviour
 	[SerializeField] float m_MinLaunchStrength = 5.0f;
 	[SerializeField] float m_MaxLaunchStrength = 15.0f;
 
-	private void Start()
+	public void Stop()
 	{
-		Invoke("LaunchInRandomDirection", .5f);
+		RigidBody.velocity = new Vector3();
 	}
-
-	// Update is called once per frame
-	void Update()
-    {
-        
-    }
 
 	public void LaunchInRandomDirection()
 	{
