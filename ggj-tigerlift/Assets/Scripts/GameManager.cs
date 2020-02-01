@@ -21,18 +21,27 @@ public class GameManager : MonoBehaviour
 	public GameObject Player1WinText;
 	public GameObject Player2WinText;
 
+	public GameObject GameStartScreen;
+
+	bool gameStarted = false;
+
 	private void Awake()
 	{
 		m_Instance = this;
 	}
 
-	private void Start()
-	{
-		StartGame();
-	}
-
 	private void Update()
 	{
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			StartGame();
+		}
+
+		if (!gameStarted)
+		{
+			return;
+		}
+
 		if (Input.GetKeyDown(KeyCode.R))
 		{
 			UnityEngine.SceneManagement.SceneManager.LoadScene(0);
@@ -64,7 +73,9 @@ public class GameManager : MonoBehaviour
 
 	void StartGame()
 	{
+		GameStartScreen.SetActive(false);
 		ResetBall();
+		gameStarted = true;
 	}
 
 	public void ResetBall()
