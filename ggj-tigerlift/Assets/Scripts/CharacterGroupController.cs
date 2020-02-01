@@ -12,6 +12,10 @@ public class CharacterGroupController : MonoBehaviour
 	public FoosballCharacter Character;
 	public CharacterRail Rail;
 
+	public FoosballCharacter OpponentCharacter;
+
+	public PlayerUIPanel UIPanel;
+
 	private void Awake()
 	{
 		SetupEvents();
@@ -20,7 +24,7 @@ public class CharacterGroupController : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-        
+		UpdateUIElements();
     }
 
     // Update is called once per frame
@@ -37,17 +41,20 @@ public class CharacterGroupController : MonoBehaviour
 
 	void OnColliderEnterGate(Collider other)
 	{
-		Character.CurrentLife += 1;
+		OpponentCharacter.CurrentLife += 1;
 		GameManager.Instance.ResetBall();
+		OpponentCharacter.GetComponentInParent<CharacterGroupController>().UpdateUIElements();
+		UpdateUIElements();
 	}
 
 	void OnColliderHitCastle(Collider other)
 	{
 		Character.CurrentLife -= 1;
+		UpdateUIElements();
 	}
 
 	void UpdateUIElements()
 	{
-
+		UIPanel.ScoreText.text = Character.CurrentLife.ToString();
 	}
 }

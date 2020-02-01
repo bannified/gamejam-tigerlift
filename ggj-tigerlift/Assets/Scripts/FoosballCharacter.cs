@@ -23,6 +23,8 @@ public class FoosballCharacter : MonoBehaviour
 
 	public List<Foosball> BallsInRange = new List<Foosball>();
 
+	public PlayerUIPanel PlayerUI;
+
 	private void Awake()
 	{
 		BallsInRange = new List<Foosball>();
