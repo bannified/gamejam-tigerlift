@@ -806,7 +806,7 @@ PrefabInstance:
     - target: {fileID: 8549764296073970639, guid: 0af99a7f1f9cdda43a73f6b66d1240c9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7354744
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8549764296073970639, guid: 0af99a7f1f9cdda43a73f6b66d1240c9,
         type: 3}
@@ -868,9 +868,29 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8549764296073970635, guid: 0af99a7f1f9cdda43a73f6b66d1240c9,
+        type: 3}
+      propertyPath: m_MinLaunchStrength
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549764296073970635, guid: 0af99a7f1f9cdda43a73f6b66d1240c9,
+        type: 3}
+      propertyPath: m_MaxLaunchStrength
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8549764296073970628, guid: 0af99a7f1f9cdda43a73f6b66d1240c9,
         type: 3}
       propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549764296073970628, guid: 0af99a7f1f9cdda43a73f6b66d1240c9,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549764296073970628, guid: 0af99a7f1f9cdda43a73f6b66d1240c9,
+        type: 3}
+      propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -4,16 +4,32 @@ using UnityEngine;
 
 public class Foosball : MonoBehaviour
 {
+	[SerializeField] Collider m_Coll;
 
-    // Start is called before the first frame update
-    void Start()
+	[SerializeField] Rigidbody m_RigidBody;
+
+	[SerializeField] float m_MinLaunchStrength = 5.0f;
+	[SerializeField] float m_MaxLaunchStrength = 15.0f;
+
+	private void Start()
+	{
+		Invoke("LaunchInRandomDirection", .5f);
+	}
+
+	// Update is called once per frame
+	void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	public void LaunchInRandomDirection()
+	{
+		Vector3 launchVector = Random.onUnitSphere;
+		launchVector.y = 0.0f; // we don't need the y-component
+		launchVector.Normalize();
+
+		launchVector *= Random.Range(m_MinLaunchStrength, m_MaxLaunchStrength);
+
+		m_RigidBody.AddForce(launchVector, ForceMode.Impulse);
+	}
 }
