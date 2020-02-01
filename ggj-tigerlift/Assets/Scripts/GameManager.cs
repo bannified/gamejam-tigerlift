@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
 
 	void StartGame()
 	{
+		Time.timeScale = 1.0f;
 		GameStartScreen.SetActive(false);
 		ResetBall();
 		gameStarted = true;
