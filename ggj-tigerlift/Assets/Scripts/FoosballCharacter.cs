@@ -7,6 +7,8 @@ public class FoosballCharacter : MonoBehaviour
 	[SerializeField] private GameObject m_CharacterPrefab;
 	[SerializeField] private GameObject Visual;
 
+	[SerializeField] private GameObject m_KickEffectPrefab;
+
 	public float MoveSpeed = 2.0f;
 
 	[SerializeField] float m_TimeSinceLastKick = 0.0f;
@@ -55,7 +57,11 @@ public class FoosballCharacter : MonoBehaviour
 			Vector3 direction = ball.transform.position - transform.position;
 			ball.RigidBody.velocity = direction.normalized * ball.RigidBody.velocity.magnitude * KickImpulse;
 
-			//ball.RigidBody.AddForce(direction.normalized * KickImpulse, ForceMode.VelocityChange);
+			Vector3 effectPos = transform.position + 0.5f * direction;
+			effectPos.y = transform.position.y;
+
+			Instantiate(m_KickEffectPrefab, effectPos, Quaternion.identity);
+
 		}
 
 	}

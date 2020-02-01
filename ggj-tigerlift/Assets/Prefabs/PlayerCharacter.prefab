@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CharacterPrefab: {fileID: 0}
   Visual: {fileID: 2497518764067489473}
+  m_KickEffectPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   MoveSpeed: 16
   m_TimeSinceLastKick: 0
   KickCooldown: 2
