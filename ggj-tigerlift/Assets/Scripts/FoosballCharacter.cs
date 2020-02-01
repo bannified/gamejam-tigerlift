@@ -9,6 +9,8 @@ public class FoosballCharacter : MonoBehaviour
 
 	[SerializeField] private GameObject m_KickEffectPrefab;
 
+	[SerializeField] private AudioSource audioSource;
+
 	public float MoveSpeed = 2.0f;
 
 	[SerializeField] float m_TimeSinceLastKick = 0.0f;
@@ -23,6 +25,8 @@ public class FoosballCharacter : MonoBehaviour
 
 	public List<Foosball> BallsInRange = new List<Foosball>();
 
+	public PlayerUIPanel PlayerUI;
+
 	private void Awake()
 	{
 		BallsInRange = new List<Foosball>();
@@ -32,12 +36,6 @@ public class FoosballCharacter : MonoBehaviour
 			Instantiate(m_CharacterPrefab, Visual.transform);
 		}
 	}
-
-	// Start is called before the first frame update
-	void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -77,6 +75,9 @@ public class FoosballCharacter : MonoBehaviour
 			effectPos.y = transform.position.y;
 
 			Instantiate(m_KickEffectPrefab, effectPos, Quaternion.identity);
+
+			audioSource.Play();
+			audioSource.time = 0.3f;
 
 		}
 
