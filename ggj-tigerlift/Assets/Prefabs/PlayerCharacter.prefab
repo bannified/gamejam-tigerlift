@@ -50,12 +50,13 @@ MonoBehaviour:
   m_KickEffectPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   MoveSpeed: 16
   m_TimeSinceLastKick: 0
-  KickCooldown: 2
+  KickCooldown: 0.8
   KickImpulse: 1.2
   KickMinVelocityMagnitude: 8
   AttachedRail: {fileID: 0}
   CurrentLife: 3
   BallsInRange: []
+  PlayerUI: {fileID: 0}
 --- !u!135 &279691808531047095
 SphereCollider:
   m_ObjectHideFlags: 0
