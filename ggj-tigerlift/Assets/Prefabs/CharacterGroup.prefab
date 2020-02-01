@@ -247,6 +247,20 @@ MonoBehaviour:
   PlayerController: {fileID: 5582794753901405807}
   Character: {fileID: 3777095448171597606}
   Rail: {fileID: 3777095447848602644}
+--- !u!64 &2662394963043992688
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4125374366737661472}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: c11cd6669e59b6a4c9e1889bd326e94f, type: 3}
 --- !u!1 &6831907391116886204
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,6 +612,12 @@ PrefabInstance:
 --- !u!4 &4125374366737359360 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: c11cd6669e59b6a4c9e1889bd326e94f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4125374366737758336}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4125374366737661472 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: c11cd6669e59b6a4c9e1889bd326e94f,
     type: 3}
   m_PrefabInstance: {fileID: 4125374366737758336}
   m_PrefabAsset: {fileID: 0}
