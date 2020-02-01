@@ -16,6 +16,8 @@ public class CharacterGroupController : MonoBehaviour
 
 	public PlayerUIPanel UIPanel;
 
+	public List<GameObject> TowerPieces;
+
 	private void Awake()
 	{
 		SetupEvents();
@@ -25,12 +27,6 @@ public class CharacterGroupController : MonoBehaviour
 	void Start()
     {
 		UpdateUIElements();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
 	void SetupEvents()
@@ -56,5 +52,16 @@ public class CharacterGroupController : MonoBehaviour
 	void UpdateUIElements()
 	{
 		UIPanel.ScoreText.text = Character.CurrentLife.ToString();
+
+		int i = 0;
+		for (; i < Character.CurrentLife; i++)
+		{
+			TowerPieces[i].SetActive(true);
+		}
+
+		for (; i < TowerPieces.Count; i++)
+		{
+			TowerPieces[i].SetActive(false);
+		}
 	}
 }
