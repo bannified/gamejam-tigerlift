@@ -45,4 +45,9 @@ public class CharacterGroupController : MonoBehaviour
 	{
 		Character.CurrentLife -= 1;
 	}
+
+	void UpdateUIElements()
+	{
+
+	}
 }
