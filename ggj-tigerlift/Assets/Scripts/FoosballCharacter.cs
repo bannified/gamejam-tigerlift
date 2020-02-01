@@ -4,16 +4,33 @@ using UnityEngine;
 
 public class FoosballCharacter : MonoBehaviour
 {
+	[SerializeField] private GameObject m_CharacterPrefab;
+	[SerializeField] private GameObject Visual;
 
 	public float MoveSpeed = 2.0f;
 
 	[SerializeField] float m_TimeSinceLastKick = 0.0f;
 	public float KickCooldown = 2.0f;
+	public float KickImpulse = 1.2f;
 
 	public CharacterRail AttachedRail;
 
-    // Start is called before the first frame update
-    void Start()
+	public int CurrentLife;
+
+	public List<Foosball> BallsInRange = new List<Foosball>();
+
+	private void Awake()
+	{
+		BallsInRange = new List<Foosball>();
+
+		if (m_CharacterPrefab)
+		{
+			Instantiate(m_CharacterPrefab, Visual.transform);
+		}
+	}
+
+	// Start is called before the first frame update
+	void Start()
     {
         
     }
@@ -33,7 +50,13 @@ public class FoosballCharacter : MonoBehaviour
 		}
 
 		// do da kick
+		foreach (Foosball ball in BallsInRange)
+		{
+			Vector3 direction = ball.transform.position - transform.position;
+			ball.RigidBody.velocity = direction.normalized * ball.RigidBody.velocity.magnitude * KickImpulse;
 
+			//ball.RigidBody.AddForce(direction.normalized * KickImpulse, ForceMode.VelocityChange);
+		}
 
 	}
 
@@ -53,5 +76,29 @@ public class FoosballCharacter : MonoBehaviour
 		{
 			AttachedRail.MoveCharacterDown();
 		}
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		Foosball ball = other.GetComponent<Foosball>();
+		
+		if (ball == null)
+		{
+			return;
+		}
+
+		BallsInRange.Add(ball);
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		Foosball ball = other.GetComponent<Foosball>();
+
+		if (ball == null)
+		{
+			return;
+		}
+
+		BallsInRange.Remove(ball);
 	}
 }

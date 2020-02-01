@@ -6,7 +6,7 @@ public class Foosball : MonoBehaviour
 {
 	[SerializeField] Collider m_Coll;
 
-	[SerializeField] Rigidbody m_RigidBody;
+	public Rigidbody RigidBody;
 
 	[SerializeField] float m_MinLaunchStrength = 5.0f;
 	[SerializeField] float m_MaxLaunchStrength = 15.0f;
@@ -30,6 +30,6 @@ public class Foosball : MonoBehaviour
 
 		launchVector *= Random.Range(m_MinLaunchStrength, m_MaxLaunchStrength);
 
-		m_RigidBody.AddForce(launchVector, ForceMode.Impulse);
+		RigidBody.AddForce(launchVector, ForceMode.Impulse);
 	}
 }

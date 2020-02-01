@@ -37,9 +37,10 @@ public class PlayerController : MonoBehaviour
 			Character.OnDownButton();
 		}
 
-		if (Input.GetKey(m_KickButton))
+		if (Input.GetKeyDown(m_KickButton))
 		{
 			// kick
+			Character.OnKick();
 		}
 
 
