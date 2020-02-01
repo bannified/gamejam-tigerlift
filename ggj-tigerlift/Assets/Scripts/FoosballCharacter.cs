@@ -15,6 +15,8 @@ public class FoosballCharacter : MonoBehaviour
 	public float KickCooldown = 2.0f;
 	public float KickImpulse = 1.2f;
 
+	public float KickMinVelocityMagnitude = 5.0f;
+
 	public CharacterRail AttachedRail;
 
 	public int CurrentLife;
@@ -55,7 +57,21 @@ public class FoosballCharacter : MonoBehaviour
 		foreach (Foosball ball in BallsInRange)
 		{
 			Vector3 direction = ball.transform.position - transform.position;
-			ball.RigidBody.velocity = direction.normalized * ball.RigidBody.velocity.magnitude * KickImpulse;
+			Vector3 normalized = direction.normalized;
+			//float angle = Mathf.Atan(direction.z / direction.x);
+			//float angleDeg = angle * Mathf.Rad2Deg;
+
+			if (ball.RigidBody.velocity.magnitude >= KickMinVelocityMagnitude)
+			{
+				ball.RigidBody.velocity = normalized * ball.RigidBody.velocity.magnitude * KickImpulse;
+				print("normal kick");
+			} else
+			{
+				// apply min velocity in other direction
+				//ball.RigidBody.velocity = new Vector3(KickMinVelocityMagnitude * Mathf.Cos(angle), 0.0f, KickMinVelocityMagnitude * Mathf.Sin(angle));
+				ball.RigidBody.velocity = KickImpulse * normalized * KickMinVelocityMagnitude;
+				print("min kick");
+			}
 
 			Vector3 effectPos = transform.position + 0.5f * direction;
 			effectPos.y = transform.position.y;
